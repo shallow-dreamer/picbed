@@ -1934,6 +1934,37 @@ express内部准备好可以直接使用的
 
 ```js
 //创建web服务器，托管静态资源到public目录，包含登录网页login.html，点击提交向服务器发请求（post /mylogin），获取传递的参数，响应'登录成功，欢迎：'
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>用户注册</h1>
+    <form method="post" action="/mylogin">
+        用户<input type="text" name="user" id=""><br>
+        密码<input type="password" name="pwd" id=""><br>
+        <input type="submit" value="提交">
+    </form>
+</body>
+</html>
+
+//引入express模块
+const express = require('express')
+//创建WEB服务器
+const app = express()
+//设置端口
+app.listen(3000,() => {
+    console.log('服务器已启动')
+})
+app.use(express.static('C:/Users/39382/Desktop/web前端开发笔记/web前端开发学习代码笔记/第一阶段后端开发/node.js/day05/public'))
+app.use(express.urlencoded({extended:true}))
+app.post('/mylogin',(req,res) => {
+    res.send(`登录成功，欢迎：${req.body.user}`)
+})
 ```
 
 
