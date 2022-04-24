@@ -211,7 +211,7 @@ foo(obj1)
 console.log(obj1.b)		//4
 ```
 
-
+![1](https://gitee.com/shallow_dreamer/pictures1/raw/master/img/202204240937552.png)
 
 # 七、数据类型转换
 
@@ -280,7 +280,9 @@ console.log(n4,typeof n4,n5,typeof n5)
    只能用于将数值和布尔值转换为字符串
 
    ```js
-   var n=truevar str=n.toString()	//true stringconsole.log(str,typeof str)
+   var n=true
+   var str=n.toString()	//true string
+   console.log(str,typeof str)
    ```
 
 # 八、运算符
@@ -302,7 +304,13 @@ console.log(n4,typeof n4,n5,typeof n5)
 --	自减，在原来的基础上减1
 
 ```js
-var a1=5//先把a1的值赋给a2，然后a1再执行自增var a2=a1++var a3=2//a3先执行自增，再把自增的结果赋给a4var a4=++a3
+var a1=5
+//先把a1的值赋给a2，然后a1再执行自增
+var a2=a1++
+
+var a3=2
+//a3先执行自增，再把自增的结果赋给a4
+var a4=++a3
 ```
 
 ## 2.比较运算符 > < >= <= == != === `!==`
@@ -321,7 +329,9 @@ var a1=5//先把a1的值赋给a2，然后a1再执行自增var a2=a1++var a3=2//a
 NaN 和任何值比较（> < >= <= == ===）结果都是false
 
 ```js
-3>' 10a'	//false3<' 10a'	//false3==' 10a'	//false
+3>' 10a'	//false
+3<' 10a'	//false
+3==' 10a'	//false
 ```
 
 ## 3.逻辑运算符
@@ -333,13 +343,25 @@ NaN 和任何值比较（> < >= <= == ===）结果都是false
 !	逻辑非：取反
 
 ```js
-var user='1'var pwd='1'console.log(user=='tao222' && pwd=='123abc')//变量保存年龄，判断是否符合老人或儿童var age=25console.log(age>=60 || age <=12)var user='1'console.log(user==='tao222' || user==='13812345678' || user==='tao@tedu.cn')
+var user='1'
+var pwd='1'
+console.log(user=='tao222' && pwd=='123abc')
+//变量保存年龄，判断是否符合老人或儿童
+var age=25
+console.log(age>=60 || age <=12)
+var user='1'
+console.log(user==='tao222' || user==='13812345678' || user==='tao@tedu.cn')
 ```
 
 ## 课后任务
 
 ```js
-//练习： 声明变量保存任意一个年份，判断是否为闰年，如果是打印true，否则打印false闰年：能被4整除、并且不能被100整除、或者能被400整除var year=1996console.log(year%4==0 && year%100!=0 || year%400==0)//重点在数据库，尝试分析项目功能，设计数据库；前提：参考学子商城代码文件：https://gitee.com/shallow_dreamer/pictures1/blob/master/lianxiwenjain/codeboy.sqlhttps://gitee.com/shallow_dreamer/pictures1/blob/master/lianxiwenjain/codeboy%20copy.sql
+//练习： 声明变量保存任意一个年份，判断是否为闰年，如果是打印true，否则打印false闰年：能被4整除、并且不能被100整除、或者能被400整除
+var year=1996
+console.log(year%4==0 && year%100!=0 || year%400==0)
+//重点在数据库，尝试分析项目功能，设计数据库；前提：参考学子商城
+代码文件：https://gitee.com/shallow_dreamer/pictures1/blob/master/lianxiwenjain/codeboy.sql
+https://gitee.com/shallow_dreamer/pictures1/blob/master/lianxiwenjain/codeboy%20copy.sql
 ```
 
 ## 4.位运算符
@@ -361,7 +383,10 @@ var user='1'var pwd='1'console.log(user=='tao222' && pwd=='123abc')//变量保�
 运算赋值：先执行运算，再进行赋值
 
 ```js
-//声明变量保存商品的价格，8折，输出价格var a=100a *= 0.8console.log(a)
+//声明变量保存商品的价格，8折，输出价格
+var a=100
+a *= 0.8
+console.log(a)
 ```
 
 ## 6.三目运算符
@@ -373,7 +398,10 @@ var user='1'var pwd='1'console.log(user=='tao222' && pwd=='123abc')//变量保�
 三目运算符：由两个运算符连接了三个表达式	条件表达式 ? 返回表达式1 : 返回表达式2	如果条件表达式为true执行表达式1，否则执行表达式2
 
 ```js
-//声明两个变量分别保存用户输入的用户名和密码，如果用户名是admin，并且密码是123abc，打印"登陆成功",否则”登陆失败”var user = 'admin'var pwd = '123abc'console.log(user == "admin" && pwd == "123abc" ? "登录成功" : "登录失败")
+//声明两个变量分别保存用户输入的用户名和密码，如果用户名是admin，并且密码是123abc，打印"登陆成功",否则”登陆失败”
+var user = 'admin'
+var pwd = '123abc'
+console.log(user == "admin" && pwd == "123abc" ? "登录成功" : "登录失败")
 ```
 
 # 九、浏览器端函数
@@ -383,7 +411,14 @@ alert()	弹出警示框
 prompt()	弹出输入框，需要变量来保存输入值，保存的值为字符串型
 
 ```js
-//弹出两次输入框，分别输入数字，使用警示框弹出结果var a = prompt("请输入：")	//1 stringvar b = prompt("请输入：")	//1 stringalert(a + b)	//11 string//将输入字符转换为数值后相加var a = Number(prompt("请输入："))	//1 Numbervar b = Number(prompt("请输入："))	//1 Numberalert(a + b)	//2 Number
+//弹出两次输入框，分别输入数字，使用警示框弹出结果
+var a = prompt("请输入：")	//1 string
+var b = prompt("请输入：")	//1 string
+alert(a + b)	//11 string
+//将输入字符转换为数值后相加
+var a = Number(prompt("请输入："))	//1 Number
+var b = Number(prompt("请输入："))	//1 Number
+alert(a + b)	//2 Number
 ```
 
 # 十、流程控制
@@ -399,7 +434,32 @@ prompt()	弹出输入框，需要变量来保存输入值，保存的值为字�
 以下情况作为条件会隐式转换为false：0，NaN，""，undefined，null
 
 ```js
-//声明变量保存签名，如果内容为空则输出"这家伙很懒"，否则输出签名var a = "”if(!a){    a = "懒"}console.log(a)//判断一个人是否是成年人var age = 18if(age >= 18){    console.log("成年人")}else{    console.log("未成年人")}//改为三目运算符console.log(age >= 18 ? "成年人" : "未成年人")//声明两个变量分别保存用户输入的用户名和密码，如果用户名为admin，密码为123abc，打印登录成功，否则打印登录失败user = prompt("请输入:")pwd = prompt("请输入:")console.log(user == "admin" && pwd == "123abc" ? "登录成功" : "登录失败")//假设从后端获取到了一个人的性别（1/0），如果是1打印男，否则打印女var sex = prompt("请输入性别：")console.log(sex == 1 ? "男" : "女")if(sex == 1){    console.log("男")}else{    console.log("女")}
+//声明变量保存签名，如果内容为空则输出"这家伙很懒"，否则输出签名
+var a = "”
+if(!a){
+    a = "懒"
+}console.log(a)
+//判断一个人是否是成年人
+var age = 18
+if(age >= 18){
+    console.log("成年人")
+}else{
+    console.log("未成年人")
+}
+//改为三目运算符
+console.log(age >= 18 ? "成年人" : "未成年人")
+//声明两个变量分别保存用户输入的用户名和密码，如果用户名为admin，密码为123abc，打印登录成功，否则打印登录失败
+user = prompt("请输入:")
+pwd = prompt("请输入:")
+console.log(user == "admin" && pwd == "123abc" ? "登录成功" : "登录失败")
+//假设从后端获取到了一个人的性别（1/0），如果是1打印男，否则打印女
+var sex = prompt("请输入性别：")
+console.log(sex == 1 ? "男" : "女")
+if(sex == 1){
+    console.log("男")
+}else{
+    console.log("女")
+}
 ```
 
 ## 2. Switch-case语句
@@ -407,7 +467,16 @@ prompt()	弹出输入框，需要变量来保存输入值，保存的值为字�
 是一种特殊的多项判断语句，只能进行全等于（===）的条件判断
 
 ```js
-switch(表达式){    case 值2：	//如果表达式和值1相同        语句块1        break	//结束整个Switch-case语句    case 值n:        语句块n        break    default:        语句块n+1	//以上所有条件都是false}
+switch(表达式){
+    case 值2：	//如果表达式和值1相同
+        语句块1
+        break	//结束整个Switch-case语句
+    case 值n:
+        语句块n
+        break
+    default:
+        语句块n+1	//以上所有条件都是false
+}
 ```
 
 # 十一、循环
@@ -421,19 +490,43 @@ break
 ## 1. while循环
 
 ```js
-//先测试再循环while(循环条件){	循环体}//循环打印1~10之间的所有整数var i = 1while(i <= 10){    console.log(i)    i++}
+//先测试再循环
+while(循环条件){
+	循环体
+}
+//循环打印1~10之间的所有整数
+var i = 1
+while(i <= 10){
+    console.log(i)
+    i++
+}
 ```
 
 ## 2. do-while循环
 
 ```js
-//先循环再测试do{    循环体}while(循环条件)//打印1~10之间的所有整数var i = 1do{    console.log(i)    i++}while(i <= 10)
+//先循环再测试
+do{
+    循环体
+}while(循环条件)
+//打印1~10之间的所有整数
+var i = 1
+do{
+    console.log(i)
+    i++
+}while(i <= 10)
 ```
 
 ## 3. for循环
 
 ```js
-for(初始值;循环条件;增量){    循环体}//打印1~10之间的所有整数for(i = 1;i <= 10;i++){    console.log(i)}
+for(初始值;循环条件;增量){
+    循环体
+}
+//打印1~10之间的所有整数
+for(i = 1;i <= 10;i++){
+    console.log(i)
+}
 ```
 
 ## 4. continue和break
@@ -443,7 +536,13 @@ continue：跳过剩余循环体，还会继续循环
 break：跳出循环，不会继续循环
 
 ```js
-//循环产生1~100之间的所有整数，不包含能被3或4整除的数for(i = 1;i <= 100;i++){    if(i % 3 == 0 || i % 4 == 0){        continue    }    console.log(i)}
+//循环产生1~100之间的所有整数，不包含能被3或4整除的数
+for(i = 1;i <= 100;i++){
+    if(i % 3 == 0 || i % 4 == 0){
+        continue
+    }
+    console.log(i)
+}
 ```
 
 # 十二、函数
@@ -455,7 +554,9 @@ break：跳出循环，不会继续循环
 1. 创建函数
 
    ```js
-   function 函数名称(){    函数体——封装的重复性的代码}
+   function 函数名称(){
+       函数体——封装的重复性的代码
+   }
    ```
 
 2. 调用函数
@@ -463,13 +564,25 @@ break：跳出循环，不会继续循环
    函数名称()	每调用一次，就会执行一次函数体中的代码
 
    ```js
-   //创建getSum,在函数体中封装计算1~100之间所有整数的和并打印结果，调用多次function getSum(){    var sum = 0    for(i = 1;i <= 100;i++){        sum += i    }    console.log(sum)}getSum()getSum()getSum()
+   //创建getSum,在函数体中封装计算1~100之间所有整数的和并打印结果，调用多次
+   function getSum(){
+       var sum = 0
+       for(i = 1;i <= 100;i++){
+           sum += i
+       }
+       console.log(sum)
+   }
+   getSum()
+   getSum()
+   getSum()
    ```
 
 3. 创建带有参数的函数
 
    ```js
-   function 函数名称(参数){	//用来接收外部传递的数据    函数体}
+   function 函数名称(参数){	//用来接收外部传递的数据
+       函数体
+   }
    ```
 
 4. 调用
@@ -479,7 +592,21 @@ break：跳出循环，不会继续循环
    创建函数时的参数称为形参，调用函数时的参数称为实参，实参会赋值给形参，实参和形参的数量可以不匹配，如果形参未被赋值则为undefined
 
    ```js
-   //创建函数，计算任意两个数字相加的和function add(a,b){	//	形参：用来接收外部传递的数据    console.log(a + b)}add(3,5)	//实参：实际传递的数据//创建getSum，传递任意一个数字，计算1~任意数之间所有整数的和，调用多次function getSum(n){    for(var i = 1,sum = 0;i <= n;i++){        sum += i	}    console.log(sum)}getSum(50)getSum(60)getSum(80)
+   //创建函数，计算任意两个数字相加的和
+   function add(a,b){	//	形参：用来接收外部传递的数据
+       console.log(a + b)
+   }
+   add(3,5)	//实参：实际传递的数据
+   //创建getSum，传递任意一个数字，计算1~任意数之间所有整数的和，调用多次
+   function getSum(n){
+       for(var i = 1,sum = 0;i <= n;i++){
+           sum += i
+   	}
+       console.log(sum)
+   }
+   getSum(50)
+   getSum(60)
+   getSum(80)
    ```
 
 5. return	返回
@@ -489,7 +616,17 @@ break：跳出循环，不会继续循环
    如果函数体中没有return或者return后不加任何值，结果是undefined，一旦return执行，奇数函数体的执行
 
    ```js
-   //创建带有返回值的函数function 函数名称(参数列表){    函数体    return 值	//返回函数调用的结果}function add(a,b){    return a + b	//返回函数调用后的结果，结束函数体的执行}//调用//得到函数返回的结果console.log(add(3,5))
+   //创建带有返回值的函数
+   function 函数名称(参数列表){
+       函数体
+       return 值	//返回函数调用的结果
+   }
+   function add(a,b){
+       return a + b	//返回函数调用后的结果，结束函数体的执行
+   }
+   //调用
+   //得到函数返回的结果
+   console.log(add(3,5))
    ```
 
 6. 对比 return 和 break
@@ -499,7 +636,24 @@ break：跳出循环，不会继续循环
    break用于循环或者Switch-case语句，用于结束对应的语句
 
    ```js
-   //创建函数getStatus，传递订单的状态码，返回对应的汉字状态function getStatus(n){    switch (n){        case 1:            return "等待付款"        case 2:            return "等待发货"        case 3:            return "运输中"        case 4:            return "已签收"        case 5:            return "已取消"        default:            return "无法追踪"    }}console.log(getStatus(0))
+   //创建函数getStatus，传递订单的状态码，返回对应的汉字状态
+   function getStatus(n){
+       switch (n){
+           case 1:
+               return "等待付款"
+           case 2:
+               return "等待发货"
+           case 3:
+               return "运输中"
+           case 4:
+               return "已签收"
+           case 5:
+               return "已取消"
+           default:
+               return "无法追踪"
+       }
+   }
+   console.log(getStatus(0))
    ```
 
 ## 2. 变量的作用域
@@ -509,7 +663,10 @@ break：跳出循环，不会继续循环
 函数作用域：函数以内的区域
 
 ```js
-//全局作用域function(){	//函数作用域}
+//全局作用域
+function(){
+	//函数作用域
+}
 ```
 
 全局变量：在全局作用域下声明的变量
@@ -582,7 +739,27 @@ function foo(){
 函数名称：本质上是一个变量，用来保存一个函数
 
 ```js
-function fn(){}var fun = function(){    }console,log(fn)		//functionconsole.log(fun)	//function//创建一个函数getSum，传递两个数字，返回两者之间所有整数的和var getSum = function(a,b){    if(a > b){        a = a + b        b = a - b        a = a - b    }	for(var i = a,sum = 0; i <= b;i++){		sum += i    }    return sum}console.log(getSum(10,1))
+function fn(){
+
+}
+var fun = function(){
+    
+}
+console,log(fn)		//function
+console.log(fun)	//function
+//创建一个函数getSum，传递两个数字，返回两者之间所有整数的和
+var getSum = function(a,b){
+    if(a > b){
+        a = a + b
+        b = a - b
+        a = a - b
+    }
+	for(var i = a,sum = 0; i <= b;i++){
+		sum += i
+    }
+    return sum
+}
+console.log(getSum(10,1))
 ```
 
 函数表达式和函数声明两种创建函数的区别：
@@ -594,7 +771,9 @@ function fn(){}var fun = function(){    }console,log(fn)		//functionconsole.log(
 全局污染：全局变量带来的影响
 
 ```js
-;(function(){	//自调用前加；防止自调用函数与前面代码一起执行导致报错    //函数作用域，变量是局部变量})()
+;(function(){	//自调用前加；防止自调用函数与前面代码一起执行导致报错
+    //函数作用域，变量是局部变量
+})()
 ```
 
 ## 7.回调函数
@@ -602,7 +781,14 @@ function fn(){}var fun = function(){    }console,log(fn)		//functionconsole.log(
 把函数作为参数传递
 
 ```js
-function a(){    }function b(n){	n()		//通过形参来调用传递的函数}b(a)	//调用函数ab(function(){})		//调用匿名函数
+function a(){
+    
+}
+function b(n){
+	n()		//通过形参来调用传递的函数
+}
+b(a)	//调用函数a
+b(function(){})		//调用匿名函数
 ```
 
 ## 8.系统函数
@@ -623,41 +809,105 @@ js中的对象：
 属性名的引号可以不加，如果含有特殊字符必须添加
 
 ```js
-//创建一个员工对象，包含的属性有编号、姓名、性别、工资、部门的名称user = {    id:'1',    name:'2',    sex:'3',    salary:'4',    dept:'5'}console.log(user.id)	//访问id值console.log(user['id'])	//访问id值
+//创建一个员工对象，包含的属性有编号、姓名、性别、工资、部门的名称
+user = {
+    id:'1',
+    name:'2',
+    sex:'3',
+    salary:'4',
+    dept:'5'
+}
+console.log(user.id)	//访问id值
+console.log(user['id'])	//访问id值
 ```
 
 访问属性
 
 ```js
-对象.属性名对象['属性名']如果对象属性不存在返回undefined//创建一本图书对象，包含的属性有编号，标题，价格，出版社，修改图书价格，添加图书的上架时间book = {    编号:1,    标题:人世间    价格:99,    出版社:不知道}book['价格'] = '88'book['上架时间'] = '2000-00-00'
+对象.属性名
+对象['属性名']
+如果对象属性不存在返回undefined
+//创建一本图书对象，包含的属性有编号，标题，价格，出版社，修改图书价格，添加图书的上架时间
+book = {
+    编号:1,
+    标题:人世间
+    价格:99,
+    出版社:不知道
+}
+book['价格'] = '88'
+book['上架时间'] = '2000-00-00'
 ```
 
 内置构造函数，通过new调用
 
 ```js
-var laptop = new Object()	//创建一个空对象console.log(laptop)		//返回一个空对象laptop['title'] = '小米'laptop['price'] = '4199'console.log(laptop)
+var laptop = new Object()	//创建一个空对象
+console.log(laptop)		//返回一个空对象
+laptop['title'] = '小米'
+laptop['price'] = '4199'
+console.log(laptop)
 ```
 
 遍历属性——循环访问每个属性
 
 ```js
-book = {}for(var k in book){    console.log(`${k}:${user[k]}`)}
+book = {}
+for(var k in book){
+    console.log(`${k}:${user[k]}`)
+}
 ```
 
 #### 课后作业
 
 ```js
-//创建对象，包含一组学生成绩，遍历对象访问每个成绩，并计算出总成绩和平均成绩student = {    "a":{        yuwen:1,        shuxue:1,        yinhyu:1,        wuli:1,        huaxue:2    },    "b":{        yuwen:2,        shuxue:4,        yinhyu:2,        wuli:3,        huaxue:2    }}for(var k in student){    var sum = 0,count = 0    for(var i in student[k]){        sum += student[k][i]        count++    }    console.log(sum)    console.log(sum/count)}
+//创建对象，包含一组学生成绩，遍历对象访问每个成绩，并计算出总成绩和平均成绩
+student = {
+    "a":{
+        yuwen:1,
+        shuxue:1,
+        yinhyu:1,
+        wuli:1,
+        huaxue:2
+    },
+    "b":{
+        yuwen:2,
+        shuxue:4,
+        yinhyu:2,
+        wuli:3,
+        huaxue:2
+    }
+}
+for(var k in student){
+    var sum = 0,count = 0
+    for(var i in student[k]){
+        sum += student[k][i]
+        count++
+    }
+    console.log(sum)
+    console.log(sum/count)
+}
 ```
 
 检测属性是否存在
 
 ```js
-对象[属性名] === undefined 	//false：存在，true：不存在对象.hasOwnProperty('属性名') 	//true：存在，false：不存在属性名 in 对象	//true：存在，false：不存在
+对象[属性名] === undefined 	//false：存在，true：不存在
+对象.hasOwnProperty('属性名') 	//true：存在，false：不存在
+属性名 in 对象	//true：存在，false：不存在
 ```
 
 ```js
-//创建一个商品对象，包含的属性有编号，标题，价格，如果价格属性存在打八折，否则添加该属性var sp = {    'id':'1',    'title':'2',    'price':'3'}if('price' in sp){    price = sp['price'] * 0.8}else{    sp['price'] = ''}
+//创建一个商品对象，包含的属性有编号，标题，价格，如果价格属性存在打八折，否则添加该属性
+var sp = {
+    'id':'1',
+    'title':'2',
+    'price':'3'
+}
+if('price' in sp){
+    price = sp['price'] * 0.8
+}else{
+    sp['price'] = ''
+}
 ```
 
 方法
@@ -665,7 +915,29 @@ book = {}for(var k in book){    console.log(`${k}:${user[k]}`)}
 ​	方法对应的是一个函数
 
 ```js
-var p = {    id:'1',    f:function(){        console.log(this.id)	//this指向的是当前调用此方法的对象    },    3:function(){        console.log(3)    }}p.f()//创建一个圆对象，包含的属性有半径，圆周率，添加方法计算出圆的面积和周长var circle = {    r:3,    Pi:3.14,    s:function(){		console.log(this.Pi * this.r ** 2)    },    c:function(){        console.log(this.r * this.Pi * 2)    }}circle.s()circle.c()
+var p = {
+    id:'1',
+    f:function(){
+        console.log(this.id)	//this指向的是当前调用此方法的对象
+    },
+    3:function(){
+        console.log(3)
+    }
+}
+p.f()
+//创建一个圆对象，包含的属性有半径，圆周率，添加方法计算出圆的面积和周长
+var circle = {
+    r:3,
+    Pi:3.14,
+    s:function(){
+		console.log(this.Pi * this.r ** 2)
+    },
+    c:function(){
+        console.log(this.r * this.Pi * 2)
+    }
+}
+circle.s()
+circle.c()
 ```
 
 ### 2. 数组：[ 元素，元素，...]
@@ -682,7 +954,13 @@ var p = {    id:'1',    f:function(){        console.log(this.id)	//this指向�
 索引数组——以>=0的整数作为下标
 
 ```js
-var a = [1,2,3,4,5]//创建数组，包含音乐var a = [1,2,3,4,5]//创建数组，包含商品var b = new Array()b[0] = 1console.log(a,b)	//[1,2,3,4,5] [1]
+var a = [1,2,3,4,5]
+//创建数组，包含音乐
+var a = [1,2,3,4,5]
+//创建数组，包含商品
+var b = new Array()
+b[0] = 1
+console.log(a,b)	//[1,2,3,4,5] [1]
 ```
 
 元素的访问
@@ -690,7 +968,15 @@ var a = [1,2,3,4,5]//创建数组，包含音乐var a = [1,2,3,4,5]//创建数�
 ​	下标：是数组自动为每个元素添加的编号，从0开始的整数
 
 ```js
-var b = [1,2,3,4,5]//通过下标（索引）访问console.log(b[0])//如果下标不存在，返回undefined//创建数组，包含城市名，修改和添加元素var a = new Array()a[1] = 2a[0] = 1console.log(a)
+var b = [1,2,3,4,5]
+//通过下标（索引）访问
+console.log(b[0])
+//如果下标不存在，返回undefined
+//创建数组，包含城市名，修改和添加元素
+var a = new Array()
+a[1] = 2
+a[0] = 1
+console.log(a)
 ```
 
 长度属性
@@ -702,19 +988,40 @@ var b = [1,2,3,4,5]//通过下标（索引）访问console.log(b[0])//如果下�
 内置构造函数
 
 ```js
-//创建数组var a = new Array(1,2,3)	//[1,2,3]var a = new Array(3)	//[3 empty item] 初始化长度为3，可以添加多个元素//创建数组，包含用户名var a = new Array(1,2,3)//创建数组，初始化长度为3，添加3个国家名称var b = new Array(3)b[0] = 1b[1] = 2b[2] = 3console.log(a,b)
+//创建数组
+var a = new Array(1,2,3)	//[1,2,3]
+var a = new Array(3)	//[3 empty item] 初始化长度为3，可以添加多个元素
+//创建数组，包含用户名
+var a = new Array(1,2,3)
+//创建数组，初始化长度为3，添加3个国家名称
+var b = new Array(3)
+b[0] = 1
+b[1] = 2
+b[2] = 3
+console.log(a,b)
 ```
 
 关联数组——以字符串作为下标
 
 ```js
-//关联数组var p = []p['name'] = 1p['sex'] = '男'p.salary = '2'console.log(p)
+//关联数组
+var p = []
+p['name'] = 1
+p['sex'] = '男'
+p.salary = '2'
+console.log(p)
 ```
 
 遍历数组
 
 ```js
-a = [1,2,3,4]for(i = 0;i < a.length;i++){	console.log(a[i])}for(k in a){    console.log(a[k])}
+a = [1,2,3,4]
+for(i = 0;i < a.length;i++){
+	console.log(a[i])
+}
+for(k in a){
+    console.log(a[k])
+}
 ```
 
 ### 对比字典与数组
@@ -724,7 +1031,8 @@ a = [1,2,3,4]for(i = 0;i < a.length;i++){	console.log(a[i])}for(k in a){    cons
 ​	对象的数据是无序的，数组是有序的
 
 ```js
-//将音乐保存下来a = [{'名称'：'失眠','歌手':'黄礼楷'},{'名称':'高山和鸟','歌手':'木子束'}]
+//将音乐保存下来
+a = [{'名称'：'失眠','歌手':'黄礼楷'},{'名称':'高山和鸟','歌手':'木子束'}]
 ```
 
 ### 数组API
@@ -734,17 +1042,103 @@ a = [1,2,3,4]for(i = 0;i < a.length;i++){	console.log(a[i])}for(k in a){    cons
 
 
 ```js
-.toString()	数组转为字符串.reverse()	翻转数组.sort()		数组排序，默认以第一个字符编码从小到大排序/*将数组从小到大排序a = [1,2,3,4,5,6,2,14,1,3]a.sort(function(a,b){	return a - b	//a - b > 0，按照数字从小到大，反之则反})*/.join('指定的连接符')		//将数组元素用指定的连接符拼接成字符串/*a = ['a','b','c']//数组转字符串console.log(a.join())	//默认以，连接*/.concat('需要拼接的数组')	//将多个数组进行拼接/*var a = [1]var b = [2]var c = [3]//拼接多个数组console.log(a.concat(b,c))*/.slice(开始位置，结束位置)	//切片，截取从开始位置到结束位置的元素，不包括结束位置的元素，没有结束位置时从开始位置一直截取到末尾/*a = [1,2,3,4,5]console.log(a.slice(1,4))*/.splice(开始位置，长度,元素)	//删除，从开始位置开始删除长度数量的元素，在开始位置前加入元素,长度为0时不删除/*a = [1,2,3,4,5]console.log(a.slice(1,4，3))	//[1,3]*/.push(元素)	//将一个或多个元素添加到数组末尾，返回数组长度.pop()	//将数组末尾元素弹出，返回弹出元素.unshift()	//在输出开头添加元素.shift()	//删除数组开头的元素.indexOf(元素)	//检测数组中是否含有元素，存在返回元素下标，不存在返回-1
+.toString()	数组转为字符串
+.reverse()	翻转数组
+.sort()		数组排序，默认以第一个字符编码从小到大排序
+/*
+将数组从小到大排序
+a = [1,2,3,4,5,6,2,14,1,3]
+a.sort(function(a,b){
+	return a - b	//a - b > 0，按照数字从小到大，反之则反
+})
+*/
+.join('指定的连接符')		//将数组元素用指定的连接符拼接成字符串
+/*
+a = ['a','b','c']
+//数组转字符串
+console.log(a.join())	//默认以，连接
+*/
+.concat('需要拼接的数组')	//将多个数组进行拼接
+/*
+var a = [1]
+var b = [2]
+var c = [3]
+//拼接多个数组
+console.log(a.concat(b,c))
+*/
+.slice(开始位置，结束位置)	//切片，截取从开始位置到结束位置的元素，不包括结束位置的元素，没有结束位置时从开始位置一直截取到末尾
+/*
+a = [1,2,3,4,5]
+console.log(a.slice(1,4))
+*/
+.splice(开始位置，长度,元素)	//删除，从开始位置开始删除长度数量的元素，在开始位置前加入元素,长度为0时不删除
+/*
+a = [1,2,3,4,5]
+console.log(a.slice(1,4，3))	//[1,3]
+*/
+.push(元素)	//将一个或多个元素添加到数组末尾，返回数组长度
+.pop()	//将数组末尾元素弹出，返回弹出元素
+.unshift()	//在输出开头添加元素
+.shift()	//删除数组开头的元素
+.indexOf(元素)	//检测数组中是否含有元素，存在返回元素下标，不存在返回-1
 ```
 
 ```js
-//练习：//创建数组，包含a~h，每个字母是一个元素，分别截取cd,f，并将截取的两部分拼接a = ['a','b','c','d','e','f','g','h']console.log(a.slice(2,4),a.slice(-3,-2))console.log(a.slice(2,4).concat(a.slice(-3,-2)))//创建数组，包含a~h，每个字母是一个元素，删除e,f,替换d为z，在下标1的位置插入ma = ['a','b','c','d','e','f','g','h']a.splice(-4,2)a.splice(-3,1,'z')a.splice(1,0,'m')console.log(a)//创建数组，判断是否存在元素，不存在将元素添加到末尾a = [1,2]if(a.indexOf(3) == -1){    a.push(3)}console.log(a)
+//练习：
+//创建数组，包含a~h，每个字母是一个元素，分别截取cd,f，并将截取的两部分拼接
+a = ['a','b','c','d','e','f','g','h']
+console.log(a.slice(2,4),a.slice(-3,-2))
+console.log(a.slice(2,4).concat(a.slice(-3,-2)))
+//创建数组，包含a~h，每个字母是一个元素，删除e,f,替换d为z，在下标1的位置插入m
+a = ['a','b','c','d','e','f','g','h']
+a.splice(-4,2)
+a.splice(-3,1,'z')
+a.splice(1,0,'m')
+console.log(a)
+//创建数组，判断是否存在元素，不存在将元素添加到末尾
+a = [1,2]
+if(a.indexOf(3) == -1){
+    a.push(3)
+}
+console.log(a)
 ```
 
 #### 课后任务
 
 ```js
-//遍历数组，将数组中的元素进行翻转var a = [1,2,3,4,5,2,2,3,'q','a','a']for(var i = 0,c = '';i < parseInt(a.length/2);i++){    c = a[i]    a[i] = a[a.length - i - 1]    a[a.length - i - 1] = c    //[a[i],a[a.length - i -1]] = [a[a.length - i -1],a[i]]}//a.reverse()console.log(a)    var i = 0,        x = a.length -1;    while (i < x) {        [a[i], a[x]] = [ a[x], a[i] ]        i++        x--    }//创建数组包含一组数字，将数字进行从小到大的排列//创建数组包含一组数字，将数字进行从小到大的排列a = [2,2,3,1,1,3,5]for(i = 0;i < a.length;i++){	for(j = i;j < a.length;j++){        if(a[i] > a[j]){            [a[i],a[j]] =[a[j],a[i]]        }    }}/*a.sort(function(a,b){	return a - b	//a - b > 0})*/console.log(a)
+//遍历数组，将数组中的元素进行翻转
+var a = [1,2,3,4,5,2,2,3,'q','a','a']
+for(var i = 0,c = '';i < parseInt(a.length/2);i++){
+    c = a[i]
+    a[i] = a[a.length - i - 1]
+    a[a.length - i - 1] = c
+    //[a[i],a[a.length - i -1]] = [a[a.length - i -1],a[i]]
+}
+//a.reverse()
+console.log(a)
+    var i = 0,
+        x = a.length -1;
+    while (i < x) {
+        [a[i], a[x]] = [ a[x], a[i] ]
+        i++
+        x--
+    }
+//创建数组包含一组数字，将数字进行从小到大的排列
+//创建数组包含一组数字，将数字进行从小到大的排列
+a = [2,2,3,1,1,3,5]
+for(i = 0;i < a.length;i++){
+	for(j = i;j < a.length;j++){
+        if(a[i] > a[j]){
+            [a[i],a[j]] =[a[j],a[i]]
+        }
+    }
+}
+/*
+a.sort(function(a,b){
+	return a - b	//a - b > 0
+})
+*/
+console.log(a)
 ```
 
 ### 3.二维数组——数组嵌套
@@ -752,7 +1146,12 @@ a = [1,2,3,4]for(i = 0;i < a.length;i++){	console.log(a[i])}for(k in a){    cons
 ​	用于对数据进行二次分类
 
 ```js
-[	[元素],    [],    ...]访问：数组[下标][下标]
+[
+	[元素],
+    [],
+    ...
+]
+访问：数组[下标][下标]
 ```
 
 ## 2.内置对象：js提供的对象
@@ -780,7 +1179,68 @@ new String()	//将字符串包装成对象String()		//将任意数据强制转�
    ```
 
    ```js
-   //练习：遍历字符串'javascript',获取a出现的次数var a = 'javascript'for(var i = 0,count = 0;i < a.length;i++){	if(a[i] === 'a'){	//if(a.charAt(i) === 'a'){        count++    }}console.log(count)//统计一个字符串中的字符出现次数并输出次数最多的字符及次数var a = 'aaaqqqwwwddaa'b = {}for(i = 0;i < a.length - 1;i++){    if(a[i] in b){        b[a[i]]++    }else{        b[a[i]] = 1    }}console.log(b)var max = 0,value = ''for(var k in b){    if(max < b[k]){        max = b[k]        value = k    }}console.log(value,max)//声明变量保存一个邮箱，检测邮箱中是否含有@，没有返回非法邮箱var a = 'dadwq@dasd'if(a.indexOf('@') === -1){    console.log('非法邮箱')}//截取一个邮箱的用户名和域名var a = 'weqwewe@qewe'console.log(a.slice(0,a.indexOf('@')))console.log(a.slice((a.indexOf('@')+1)))//翻转字符串var a = 'hello'console.log(a.split().reverse().join())//将一句英文中每个单词首字母大写，其余字母小写a = 'hoW aRE YOu'a = a.split('')for(i = a.length - 1;i >= 0;i--){    if(a[i] === ' '){        a.splice(i + 1,1,a[i + 1].toUpperCase())    }else{                a.splice(i,1,a[i].toLowerCase())    }    if(i == 0){        a.splice(0,1,a[0].toUpperCase())    }}a = a.join('')console.log(a)//获取a到z中的四个随机字符放到新数组a = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']b = []for(i = 0;i < 4;i++){    b.push(a[parseInt(Math.random() * 26)])}console.log(b)
+   //练习：遍历字符串'javascript',获取a出现的次数
+   var a = 'javascript'
+   for(var i = 0,count = 0;i < a.length;i++){
+   	if(a[i] === 'a'){	//if(a.charAt(i) === 'a'){
+           count++
+       }
+   }
+   console.log(count)
+   //统计一个字符串中的字符出现次数并输出次数最多的字符及次数
+   var a = 'aaaqqqwwwddaa'
+   b = {}
+   for(i = 0;i < a.length - 1;i++){
+       if(a[i] in b){
+           b[a[i]]++
+       }else{
+           b[a[i]] = 1
+       }
+   }
+   console.log(b)
+   var max = 0,value = ''
+   for(var k in b){
+       if(max < b[k]){
+           max = b[k]
+           value = k
+       }
+   }
+   console.log(value,max)
+   //声明变量保存一个邮箱，检测邮箱中是否含有@，没有返回非法邮箱
+   var a = 'dadwq@dasd'
+   if(a.indexOf('@') === -1){
+       console.log('非法邮箱')
+   }
+   //截取一个邮箱的用户名和域名
+   var a = 'weqwewe@qewe'
+   console.log(a.slice(0,a.indexOf('@')))
+   console.log(a.slice((a.indexOf('@')+1)))
+   //翻转字符串
+   var a = 'hello'
+   console.log(a.split().reverse().join())
+   //将一句英文中每个单词首字母大写，其余字母小写
+   a = 'hoW aRE YOu'
+   a = a.split('')
+   for(i = a.length - 1;i >= 0;i--){
+       if(a[i] === ' '){
+           a.splice(i + 1,1,a[i + 1].toUpperCase())
+       }else{
+           
+           a.splice(i,1,a[i].toLowerCase())
+       }
+       if(i == 0){
+           a.splice(0,1,a[0].toUpperCase())
+       }
+   }
+   a = a.join('')
+   console.log(a)
+   //获取a到z中的四个随机字符放到新数组
+   a = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
+   b = []
+   for(i = 0;i < 4;i++){
+       b.push(a[parseInt(Math.random() * 26)])
+   }
+   console.log(b)
    ```
 
 ### 2.Math
@@ -788,7 +1248,15 @@ new String()	//将字符串包装成对象String()		//将任意数据强制转�
 ​	提供了一组数学方法
 
 ```js
-Math.PI		获取圆周率Math.abs()		获取绝对值Math.pow(x,y)	获取x的y次方Math.random()	获取随机数，范围0~1，不包括1Math.ceil()		向上取整Math.floor()	向下取整Math.round()	四舍五入取整Math.max()		获取一组数字最大值，暂时不能用数组Math.min()		获取一组数字最小值，暂时不能用数组
+Math.PI		获取圆周率
+Math.abs()		获取绝对值
+Math.pow(x,y)	获取x的y次方
+Math.random()	获取随机数，范围0~1，不包括1
+Math.ceil()		向上取整
+Math.floor()	向下取整
+Math.round()	四舍五入取整
+Math.max()		获取一组数字最大值，暂时不能用数组
+Math.min()		获取一组数字最小值，暂时不能用数组
 ```
 
 ### 3.date
@@ -798,7 +1266,10 @@ Math.PI		获取圆周率Math.abs()		获取绝对值Math.pow(x,y)	获取x的y次�
 1. 创建
 
    ```js
-   new Date('2202/4/18 01:01:01')new Date('2202,3,18,01,01,01')	//月份的值0~11，对应实际1~12new Date()	//存储的是当前操作系统的时间new Date(0)	//存储的是时间戳，相对于计算机元年的毫秒数
+   new Date('2202/4/18 01:01:01')
+   new Date('2202,3,18,01,01,01')	//月份的值0~11，对应实际1~12
+   new Date()	//存储的是当前操作系统的时间
+   new Date(0)	//存储的是时间戳，相对于计算机元年的毫秒数
    ```
 
    时间戳：距离计算机元年（1970-1-1 0:0:0.000）的毫秒数
@@ -806,7 +1277,17 @@ Math.PI		获取圆周率Math.abs()		获取绝对值Math.pow(x,y)	获取x的y次�
 2. 获取日期时间
 
    ```js
-   var d = new Date('2202/4/18 11:23:40.123')console.log(d.getFullYear())	//2202console.log(d.getMonth() + 1)	//4console.log(d.getDate())	//18console.log(d.getHours())	//11console.log(d.getMinutes())	//23console.log(d.getSeconds())	//40console.log(d.getMilliseconds())	//123console.log(d.getDay())	//获取星期，0~6为日~六console.log(d.getTime())	//时间戳console.log(Date.now())	//当前时间戳
+   var d = new Date('2202/4/18 11:23:40.123')
+   console.log(d.getFullYear())	//2202
+   console.log(d.getMonth() + 1)	//4
+   console.log(d.getDate())	//18
+   console.log(d.getHours())	//11
+   console.log(d.getMinutes())	//23
+   console.log(d.getSeconds())	//40
+   console.log(d.getMilliseconds())	//123
+   console.log(d.getDay())	//获取星期，0~6为日~六
+   console.log(d.getTime())	//时间戳
+   console.log(Date.now())	//当前时间戳
    ```
 
 3. 转为本地字符串
@@ -820,7 +1301,17 @@ Math.PI		获取圆周率Math.abs()		获取绝对值Math.pow(x,y)	获取x的y次�
 4. 设置日期时间
 
    ```js
-   //设置日期时间//没有设置星期APIvar d = new Date('2022/4/18 15:21:30')d.setFullYear('2023')d.setMonth('7')d.setDate('20')d.setTime('111111111111111')	//设置时间戳会产生一个新的日期时间d.setMilliSeconds()console.log(d.toLocaleString())//创建对象，保存当前操作系统的日期时间，修改月份为一个月前，日期为三天后var a = new Date().toLocaleString()
+   //设置日期时间
+   //没有设置星期API
+   var d = new Date('2022/4/18 15:21:30')
+   d.setFullYear('2023')
+   d.setMonth('7')
+   d.setDate('20')
+   d.setTime('111111111111111')	//设置时间戳会产生一个新的日期时间
+   d.setMilliSeconds()
+   console.log(d.toLocaleString())
+   //创建对象，保存当前操作系统的日期时间，修改月份为一个月前，日期为三天后
+   var a = new Date().toLocaleString()
    ```
 
 ### 4.Number
@@ -828,13 +1319,18 @@ Math.PI		获取圆周率Math.abs()		获取绝对值Math.pow(x,y)	获取x的y次�
 整数没有误差
 
 ```js
-new Number()	包装为对象Number()	强制转换为数值，隐式转换为数值会自动转换toFixed(n)	保留n位小数toString()	转为字符串
+new Number()	包装为对象
+Number()	强制转换为数值，隐式转换为数值会自动转换
+toFixed(n)	保留n位小数
+toString()	转为字符串
 ```
 
 ### 5.Boolean
 
 ```js
-new Boolean()	包装为对象Boolean()	强制转为布尔型!!值		将一个值隐式转换为布尔型
+new Boolean()	包装为对象
+Boolean()	强制转为布尔型
+!!值		将一个值隐式转换为布尔型
 ```
 
 ## 3.宿主对象：根据执行环境划分
@@ -853,13 +1349,66 @@ new Boolean()	包装为对象Boolean()	强制转为布尔型!!值		将一个值�
 出现错误后，不影响后续代码的执行
 
 ```js
-try{    尝试执行，可能出现错误，出错后不影响后续代码执行}catch(err){    捕获错误    err收集错误信息    解决错误}var arr = ['a','b','c']try{    arr.revese()}catch(err){    //捕获错误    //err捕获到的错误信息    console.log(err)    //解决错误    arr.reverse()}console.log(arr)
+try{
+    尝试执行，可能出现错误，出错后不影响后续代码执行
+}catch(err){
+    捕获错误
+    err收集错误信息
+    解决错误
+}
+var arr = ['a','b','c']
+try{
+    arr.revese()
+}catch(err){
+    //捕获错误
+    //err捕获到的错误信息
+    console.log(err)
+    //解决错误
+    arr.reverse()
+}
+console.log(arr)
 ```
 
 ### 课后任务
 
 ```js
-//创建函数getDays，传递任意一个日期，返回这个日期是一年的第几天function getDays(year,month,date){    var a = new Date(year,month,date)    //year = a.getFullYear()    var b = new Date(year,0,0)    datetime = a.getTime() - b.getTime()    c = parseInt(datetime / 1000 / 3600 /24)    console.log(c)}getDays(1996,12,31)year = Number(prompt("请输入年份："))month = Number(prompt("请输入月份："))day = Number(prompt("请输入日期："))days = 0if(month < 13 && month > 0 && day < 32 && day > 0){    if(month < 2){        days = day    }else if(month < 3){        days = 31 + day    }else if(month < 9){        if(year % 4 == 0 && year % 100 != 0 || year % 400 == 0){            days = 60 + (month - 3) * 30 + parseInt((month - 2)/2) + day        }else{            days = 59 + (month - 3) * 30 + parseInt((month - 2)/2) + day        }    }else if(month < 13){        if(year % 4 == 0 && year % 100 != 0 || year % 400 == 0){            days = 244 + (month - 9) * 30 + parseInt((month - 9)/2) + day        }else{            days = 243 + (month - 9) * 30 + parseInt((month - 9)/2) + day        }    }    console.log(`${year}年${month}月${day}日是当年的第${days}天`)}else{    console.log("时间错误")}
+//创建函数getDays，传递任意一个日期，返回这个日期是一年的第几天
+function getDays(year,month,date){
+    var a = new Date(year,month,date)
+    //year = a.getFullYear()
+    var b = new Date(year,0,0)
+    datetime = a.getTime() - b.getTime()
+    c = parseInt(datetime / 1000 / 3600 /24)
+    console.log(c)
+}
+getDays(1996,12,31)
+
+year = Number(prompt("请输入年份："))
+month = Number(prompt("请输入月份："))
+day = Number(prompt("请输入日期："))
+days = 0
+if(month < 13 && month > 0 && day < 32 && day > 0){
+    if(month < 2){
+        days = day
+    }else if(month < 3){
+        days = 31 + day
+    }else if(month < 9){
+        if(year % 4 == 0 && year % 100 != 0 || year % 400 == 0){
+            days = 60 + (month - 3) * 30 + parseInt((month - 2)/2) + day
+        }else{
+            days = 59 + (month - 3) * 30 + parseInt((month - 2)/2) + day
+        }
+    }else if(month < 13){
+        if(year % 4 == 0 && year % 100 != 0 || year % 400 == 0){
+            days = 244 + (month - 9) * 30 + parseInt((month - 9)/2) + day
+        }else{
+            days = 243 + (month - 9) * 30 + parseInt((month - 9)/2) + day
+        }
+    }
+    console.log(`${year}年${month}月${day}日是当年的第${days}天`)
+}else{
+    console.log("时间错误")
+}
 ```
 
 # 十五、ES6
@@ -871,7 +1420,10 @@ ECMAScript6	JS的第六套标准规范
 let声明的变量不允许重复声明，声明的变量存在提升，但不允许访问
 
 ```js
-{	块级作用域}块级作用域下let和const声明的属于局部变量或者局部变量
+{
+	块级作用域
+}
+块级作用域下let和const声明的属于局部变量或者局部变量
 ```
 
 ## 2.参数增强
@@ -879,7 +1431,22 @@ let声明的变量不允许重复声明，声明的变量存在提升，但不�
 可以给参数设置默认值
 
 ```js
-//参数增强function add(a,b,c = 0){    console.log(a + b + c)}add(5000,8000,500)add(5000,8000)function add(a){    //如果a没有实参，设置默认值为0    //选择将第一个表达式还是第二个表达式赋给a，短路逻辑    a = a || 0    console.log(a)}add()var n1 = 0 && 2console.log(n1)
+//参数增强
+function add(a,b,c = 0){
+    console.log(a + b + c)
+}
+add(5000,8000,500)
+add(5000,8000)
+
+function add(a){
+    //如果a没有实参，设置默认值为0
+    //选择将第一个表达式还是第二个表达式赋给a，短路逻辑
+    a = a || 0
+    console.log(a)
+}
+add()
+var n1 = 0 && 2
+console.log(n1)
 ```
 
 ## 3.箭头函数
@@ -887,7 +1454,17 @@ let声明的变量不允许重复声明，声明的变量存在提升，但不�
 对匿名函数的简化，和匿名函数不完全一样
 
 ```js
-function(){}//简化()=>{    }//简化排序var a = [21,331,41,12,3]a.sort((a,b)=>a - b) //函数体重只有一行代码，可以去掉{ return }console.log(a)
+function(){
+
+}
+//简化
+()=>{
+    
+}
+//简化排序
+var a = [21,331,41,12,3]
+a.sort((a,b)=>a - b) //函数体重只有一行代码，可以去掉{ return }
+console.log(a)
 ```
 
 ## 4.模板字面量
@@ -895,7 +1472,13 @@ function(){}//简化()=>{    }//简化排序var a = [21,331,41,12,3]a.sort((a,b)
 简化了字符串的拼接
 
 ```js
-`${参数}`//假设从后端获取了一条商品数据，包含的属性有编号，标题，价格，是否在售，最后打印a = [1,'a',2,0]console.log(`标题：${a[0]}标题：${a[1]}价格：${a[2]}是否在售：${a[3] == 1 ? '是' : '否'}`)
+`${参数}`
+//假设从后端获取了一条商品数据，包含的属性有编号，标题，价格，是否在售，最后打印
+a = [1,'a',2,0]
+console.log(`标题：${a[0]}
+标题：${a[1]}
+价格：${a[2]}
+是否在售：${a[3] == 1 ? '是' : '否'}`)
 ```
 
 # 十六、node.js
@@ -1038,7 +1621,9 @@ npm：用来管理包的工具，例如：下载、卸载、升级、上传...�
 中文网址：www.npmjs.cn
 
 ```js
-npm init -y		生成项目描述文件package.json，记录项目相关的信息npm install 包的名称	下载安装指定的包，将包放到node_modules目录，在package.json中记录这个包的信息，还会生成package-lock.json文件，记录所有包的信息，包括依赖包npm install		会自动下载package.json和package-lock.json中记录的包
+npm init -y		生成项目描述文件package.json，记录项目相关的信息
+npm install 包的名称	下载安装指定的包，将包放到node_modules目录，在package.json中记录这个包的信息，还会生成package-lock.json文件，记录所有包的信息，包括依赖包
+npm install		会自动下载package.json和package-lock.json中记录的包
 ```
 
 ## 3.网址（URL)
@@ -1048,29 +1633,43 @@ npm init -y		生成项目描述文件package.json，记录项目相关的信息n
 查询字符串：前端向后端传递参数的一种方式，格式：参数名=参数值&参数名=参数值
 
 ```js
-new URL('网址')	//将网址转为对象，获取各个部分searchParams	//查询字符串部分
+new URL('网址')	//将网址转为对象，获取各个部分
+searchParams	//查询字符串部分
 ```
 
 ## 4.定时器模块（timer）
 
 提供了一组全局函数，定时器里的函数不在主程序执行，而是在事件队列中执行
 
+![1](https://gitee.com/shallow_dreamer/pictures1/raw/master/img/202204240928376.png)
+
 ### 1.一次性定时器
 
 ```js
-//开启var timer = setTimeout(回调函数，间隔时间（ms）)	//到间隔时间会执行一次回调函数//清除clearTimeout(timer)
+//开启
+var timer = setTimeout(回调函数，间隔时间（ms）)	//到间隔时间会执行一次回调函数
+//清除
+clearTimeout(timer)
 ```
 
 ### 2.周期性定时器
 
 ```js
-//开启var timer = setInterval(回调函数，间隔时间（ms）)	//每隔一段时间执行一次回调函数//clearInterval(timer)
+//开启
+var timer = setInterval(回调函数，间隔时间（ms）)	//每隔一段时间执行一次回调函数
+//
+clearInterval(timer)
 ```
 
 ### 3.立即执行定时器
 
 ```js
-//开启var timer = setImmediate(回调函数)//清除clearImmediate(timer)//开启process.nextTick(回调函数)	//只有开启
+//开启
+var timer = setImmediate(回调函数)
+//清除
+clearImmediate(timer)
+//开启
+process.nextTick(回调函数)	//只有开启
 ```
 
 ## 5.同步和异步
@@ -1080,33 +1679,44 @@ new URL('网址')	//将网址转为对象，获取各个部分searchParams	//查
 异步：在主程序后的队列事件执行，不会阻止主程序代码执行
 
 ```js
-同步：通过返回值获取结果，在主程序执行异步：通过回调函数获取结果，在一个独立线程中执行，执行完后将结果（回调函数）插入到事件队列中
+同步：通过返回值获取结果，在主程序执行
+异步：通过回调函数获取结果，在一个独立线程中执行，执行完后将结果（回调函数）插入到事件队列中
 ```
+
+![文件操作异步执行](https://gitee.com/shallow_dreamer/pictures1/raw/master/img/202204240930730.png)
 
 ## 6.文件系统模块
 
 文件分为目录形式和文件形式
 
 ```js
-//核心模块：会到node.js的安装目录中找require('fs')
+//核心模块：会到node.js的安装目录中找
+require('fs')
 ```
 
 ### 1.检测文件的状态
 
 ```js
-statSync('文件路径')	//查看文件状态，同步stat('文件路径'，回调函数)	//通过回调函数查看文件状态，异步isFile()	//查看是否是文件，返回布尔值isDirectory()	//查看是否是目录，返回布尔值
+statSync('文件路径')	//查看文件状态，同步
+stat('文件路径'，回调函数)	//通过回调函数查看文件状态，异步
+isFile()	//查看是否是文件，返回布尔值
+isDirectory()	//查看是否是目录，返回布尔值
 ```
 
 ### 2.清空写入文件
 
 ```js
-writeFile('文件路径','写入内容',回调函数)writeFileSync('文件路径','写入内容')//如果文件不存在，会创建文件并写入数据，若存在，会清空文件内容后写入
+writeFile('文件路径','写入内容',回调函数)
+writeFileSync('文件路径','写入内容')
+//如果文件不存在，会创建文件并写入数据，若存在，会清空文件内容后写入
 ```
 
 ### 3.追加写入文件
 
 ```js
-appendFileSync('文件路径','写入内容')appendFile('文件路径','写入内容',回调函数)//如果文件不存在，会创建文件并写入数据，若存在，会在文件内容后写入
+appendFileSync('文件路径','写入内容')
+appendFile('文件路径','写入内容',回调函数)
+//如果文件不存在，会创建文件并写入数据，若存在，会在文件内容后写入
 ```
 
 ### 4.读取文件
