@@ -1825,18 +1825,128 @@ res.set({})		//设置头信息
 req.url		//获取请求的URL
 req.method 	//获取请求的方法
 req.query	//获取URL中查询字符串格式的参数
+//获取路径
+console.log(__filename)     //获取当前模块的绝对路径和名称
+console.log(__dirname)      //获取当前模块的绝对路径
 ```
 
 ### 3.路由中传递参数的方式
 
-| 传递方式   | 格式                                             | 获取                                                      |
-| ---------- | ------------------------------------------------ | --------------------------------------------------------- |
-| get传递    | http://127.0.0.1:3000/mysearch?kw=参数&a=1       | req.query<br />{kw:参数,a:1}                              |
-| params传递 | http://127.0.0.1:3000/mysearch/参数              | 需要在路由中设置参数名<br />req.params<br />{参数名:参数} |
-| post传递   | http://127.0.0.1:3000/mysearch<br />网址中不可见 | 需要使用中间操作转为对象<br />req.body<br />{参数名:参数} |
+| 传递方式   | 格式                                             | 获取                                                        |
+| ---------- | ------------------------------------------------ | ----------------------------------------------------------- |
+| get传递    | http://127.0.0.1:3000/mysearch?kw=参数&a=1       | req.query<br />{kw:参数,a:1}                                |
+| params传递 | http://127.0.0.1:3000/mysearch/参数              | 需要在路由中设置参数名<br />req.params<br />{参数名:参数}   |
+| post传递   | http://127.0.0.1:3000/mysearch<br />网址中不可见 | 需要使用中间件操作转为对象<br />req.body<br />{参数名:参数} |
 
 ```js
 //将post传参转为对象（在路由之前）
-app.use(express.urlencoded())
+app.use(express.urlencoded({extended:true/false}))
+true:使用第三方模
+false:使用核心模块
+```
+
+## 2.路由器
+
+用来管理路由，包含一组路由，最终挂载到WEB服务器
+
+```js
+//路由器模块
+//引入express模块
+const express = require('express')
+//创建路由器对象
+const r = express.Router()
+//添加路由（get /reg）
+r.get('/reg',(req,res) => {
+    res.send('注册成功')
+})
+//暴露路由器对象
+module.exports = r
+
+//服务器模块
+//引入express模块
+const express = require('express')
+//引入用户路由器模块
+const userRouter = require('./user.js')
+//创建WEB服务器
+const app = express()
+//设置端口
+app.listen(3000,() => {
+    console.log('服务器已启动')
+})
+//将路由器挂载到WEB服务器
+app.use('/user',userRouter)		//给路由器下路由添加前缀
+```
+
+## 3.中间件
+
+拦截对WEB服务器的请求，分为应用级中间件、路由器级中间件、内置中间件、第三方中间件、错误处理中间件
+
+### 1.应用级中间件
+
+也称为自定义中间件，是一个函数，一旦拦截到请求会自动调用函数
+
+```js
+function fn(req,res,next){
+    if(req.query.user !== root){
+        console.log('')
+    }else{
+        next()		//往后执行下一个中间件或路由
+    }
+}
+app.use(拦截的URL，fn)
+```
+
+### 2.路由级中间件
+
+就是路由器的使用
+
+```js
+app.use(拦截的URL，路由器)
+//一旦拦截到URL后，到指定的路由器下查找路由
+```
+
+### 3.内置中间件
+
+express内部准备好可以直接使用的
+
+1. 将post传递参数转为对象
+
+   ```js
+   //拦截所有的post请求
+   app.use(express.urlencoded())
+   ```
+
+2. 托管静态资源
+
+   静态资源：html、css、js、图片、视频...
+
+   托管静态资源：浏览器要请求静态资源，不需要通过路由响应文件，而是浏览器自动的寻找
+
+   ```js
+   app.use(express.static('托管的目录'))
+   ```
+
+### 4.第三方中间件
+
+属于第三方模块，需要先下载安装
+
+#### 练习
+
+```js
+//创建web服务器，托管静态资源到public目录，包含登录网页login.html，点击提交向服务器发请求（post /mylogin），获取传递的参数，响应'登录成功，欢迎：'
+```
+
+
+
+# 二十二、mysql模块
+
+node.js下专门操作mysql数据库的模块，属于第三方模块，需先下载安装：npm install mysql
+
+```mysql
+mysql.exe -h127.0.0.1 -P3306 -uroot -p
+insert into 表名称 values(...)
+delete from 表名称 where 条件
+update 表名称 set 列1=值1,列2=值2,... where 条件
+select * from 表名称 where 条件
 ```
 
