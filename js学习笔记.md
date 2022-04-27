@@ -296,13 +296,7 @@ console.log(n4,typeof n4,n5,typeof n5)
 --	自减，在原来的基础上减1
 
 ```js
-var a1=5
-//先把a1的值赋给a2，然后a1再执行自增
-var a2=a1++
-
-var a3=2
-//a3先执行自增，再把自增的结果赋给a4
-var a4=++a3
+var a1=5//先把a1的值赋给a2，然后a1再执行自增var a2=a1++var a3=2//a3先执行自增，再把自增的结果赋给a4var a4=++a3
 ```
 
 ## 2.比较运算符 > < >= <= == != === `!==`
@@ -321,9 +315,7 @@ var a4=++a3
 NaN 和任何值比较（> < >= <= == ===）结果都是false
 
 ```js
-3>' 10a'	//false
-3<' 10a'	//false
-3==' 10a'	//false
+3>' 10a'	//false3<' 10a'	//false3==' 10a'	//false
 ```
 
 ## 3.逻辑运算符
@@ -563,27 +555,7 @@ foo()function foo(){	}
 函数名称：本质上是一个变量，用来保存一个函数
 
 ```js
-function fn(){
-
-}
-var fun = function(){
-    
-}
-console,log(fn)		//function
-console.log(fun)	//function
-//创建一个函数getSum，传递两个数字，返回两者之间所有整数的和
-var getSum = function(a,b){
-    if(a > b){
-        a = a + b
-        b = a - b
-        a = a - b
-    }
-	for(var i = a,sum = 0; i <= b;i++){
-		sum += i
-    }
-    return sum
-}
-console.log(getSum(10,1))
+function fn(){}var fun = function(){    }console,log(fn)		//functionconsole.log(fun)	//function//创建一个函数getSum，传递两个数字，返回两者之间所有整数的和var getSum = function(a,b){    if(a > b){        a = a + b        b = a - b        a = a - b    }	for(var i = a,sum = 0; i <= b;i++){		sum += i    }    return sum}console.log(getSum(10,1))
 ```
 
 函数表达式和函数声明两种创建函数的区别：
@@ -595,9 +567,7 @@ console.log(getSum(10,1))
 全局污染：全局变量带来的影响
 
 ```js
-;(function(){	//自调用前加；防止自调用函数与前面代码一起执行导致报错
-    //函数作用域，变量是局部变量
-})()
+;(function(){	//自调用前加；防止自调用函数与前面代码一起执行导致报错    //函数作用域，变量是局部变量})()
 ```
 
 ## 7.回调函数
@@ -605,14 +575,7 @@ console.log(getSum(10,1))
 把函数作为参数传递
 
 ```js
-function a(){
-    
-}
-function b(n){
-	n()		//通过形参来调用传递的函数
-}
-b(a)	//调用函数a
-b(function(){})		//调用匿名函数
+function a(){    }function b(n){	n()		//通过形参来调用传递的函数}b(a)	//调用函数ab(function(){})		//调用匿名函数
 ```
 
 ## 8.系统函数
@@ -946,13 +909,7 @@ function(){}//简化()=>{    }//简化排序var a = [21,331,41,12,3]a.sort((a,b)
    在浏览器下的名称：window
 
    ```js
-   //编写脚本文件03_global.js，使用var声明变量，在创建函数，检测是否为全局
-   var a = 1
-   let b = 1
-   function f(){
-       return 2
-   }
-   console.log(window.a,window.b,window.f())	//1 undefined 2
+   //编写脚本文件03_global.js，使用var声明变量，在创建函数，检测是否为全局var a = 1let b = 1function f(){    return 2}console.log(window.a,window.b,window.f())	//1 undefined 2
    ```
 
    浏览器端，每个JS文件都是在全局作用域，存在全局污染
@@ -1129,21 +1086,13 @@ createReadStream()	//创建读取的文件流，分成多段读取createWriteStr
 1. 通用头信息（general）
 
    ```js
-   Request URL：请求的网址，要请求的资源
-   Request Method：请求方式，对资源的操作方式，分为增删改查：get（获取）、post（）
-   Status Code：响应的状态码
-   	1**：信息、请求收到，还没有做出响应
-   	2**：成功的响应
-   	3**：相应的重定向，发生了跳转
-   	4**：客户端错误
-   	5**：服务器端错误
+   Request URL：请求的网址，要请求的资源Request Method：请求方式，对资源的操作方式，分为增删改查：get（获取）、post（）Status Code：响应的状态码	1**：信息、请求收到，还没有做出响应	2**：成功的响应	3**：相应的重定向，发生了跳转	4**：客户端错误	5**：服务器端错误
    ```
 
 2. 响应头信息（response）
 
    ```js
-   Location：设置要跳转的网址
-   Content-Type：响应的内容类型，解决中文乱码，'text/html;charset=utf-8'
+   Location：设置要跳转的网址Content-Type：响应的内容类型，解决中文乱码，'text/html;charset=utf-8'
    ```
 
 3. 请求头信息（request）
@@ -1155,16 +1104,7 @@ createReadStream()	//创建读取的文件流，分成多段读取createWriteStr
 WEB服务器：为前端提供资源的服务器
 
 ```js
-createServer()	//创建WEB服务器
-listen()	//设置端口
-响应对象(res)
-	res.statusCode = ''		//设置响应的状态码
-	res.setHeader()		//设置响应的头信息
-	res.write()		//设置响应的浏览器内容
-	res.end()		//结束并发送
-请求对象(req)
-	req.url		//获取请求的资源
-	req.method	//获取请求的方式
+createServer()	//创建WEB服务器listen()	//设置端口响应对象(res)	res.statusCode = ''		//设置响应的状态码	res.setHeader()		//设置响应的头信息	res.write()		//设置响应的浏览器内容	res.end()		//结束并发送请求对象(req)	req.url		//获取请求的资源	req.method	//获取请求的方式
 ```
 
 # 二十一、框架
@@ -1198,10 +1138,7 @@ express()	创建WEB服务器listen()	设置端口
 | post传递   | http://127.0.0.1:3000/mysearch<br />网址中不可见 | 需要使用中间件操作转为对象<br />req.body<br />{参数名:参数} |
 
 ```js
-//将post传参转为对象（在路由之前）
-app.use(express.urlencoded({extended:true/false}))
-true:使用第三方模
-false:使用核心模块
+//将post传参转为对象（在路由之前）app.use(express.urlencoded({extended:true/false}))true:使用第三方模false:使用核心模块
 ```
 
 ## 2.路由器
@@ -1209,31 +1146,7 @@ false:使用核心模块
 用来管理路由，包含一组路由，最终挂载到WEB服务器
 
 ```js
-//路由器模块
-//引入express模块
-const express = require('express')
-//创建路由器对象
-const r = express.Router()
-//添加路由（get /reg）
-r.get('/reg',(req,res) => {
-    res.send('注册成功')
-})
-//暴露路由器对象
-module.exports = r
-
-//服务器模块
-//引入express模块
-const express = require('express')
-//引入用户路由器模块
-const userRouter = require('./user.js')
-//创建WEB服务器
-const app = express()
-//设置端口
-app.listen(3000,() => {
-    console.log('服务器已启动')
-})
-//将路由器挂载到WEB服务器
-app.use('/user',userRouter)		//给路由器下路由添加前缀
+//路由器模块//引入express模块const express = require('express')//创建路由器对象const r = express.Router()//添加路由（get /reg）r.get('/reg',(req,res) => {    res.send('注册成功')})//暴露路由器对象module.exports = r//服务器模块//引入express模块const express = require('express')//引入用户路由器模块const userRouter = require('./user.js')//创建WEB服务器const app = express()//设置端口app.listen(3000,() => {    console.log('服务器已启动')})//将路由器挂载到WEB服务器app.use('/user',userRouter)		//给路由器下路由添加前缀
 ```
 
 | Cannot set headers after they are sent to the client<br />send()多次执行报错 |
@@ -1362,17 +1275,7 @@ Node.js通过每一个路由就可以实现接口
 是一个json对象形式，是一种字符串对象，’{}’，属性名用双引号，属性值是字符串的话也要使用双引号，包含状态码，消息
 
 ```js
-//例如：返回登录的结果
-'{
-	"code":"200",
-    "msg":"登录成功"
-}'
-//例如获取一组用户
-'{
-	"code":"200",
-    "msg":"获取成功",
-    "data":'一组数据'
-}'
+//例如：返回登录的结果'{	"code":"200",    "msg":"登录成功"}'//例如获取一组用户'{	"code":"200",    "msg":"获取成功",    "data":'一组数据'}'
 ```
 
 # 二十三、正则表达式
@@ -1394,3 +1297,105 @@ Node.js通过每一个路由就可以实现接口
 2. 匹配结束的位置：$
 
    可以对一组字符串进行精确匹配
+
+# 二十四、Git
+
+## 1.VSC系统
+
+版本控制系统，用于项目的保存，回退，代码合并，文件追踪
+
+常用vsc软件：CVS、SVN、Git
+
+## 2.Git中的概念
+
+工作目录：就是一个目录，保存项目中所有的文件
+
+暂存区：是内存中的一个区域，用于临时保存文件的变化
+
+Git仓库：是一个特殊的目录，永久保存所有文件变化
+
+## 3.Git常用的命令
+
+1. 第一次使用软件，告诉Git你是谁：
+
+   git config --global user.name ” ” 	设置用户名
+
+   git config --global user.email " " 	设置用户邮箱
+
+2. 初始化Git仓库
+
+   git init 	在当前目录创建.git目录，保存工作目录中文件的变化
+
+3. 查看Git系统的状态
+
+   git status 	显示那些文件发生了变化
+
+4. 将文件添加到暂存区
+
+   git add 文件名称 	添加文件到暂存区
+
+   git add . 	添加所有变化的文件到暂存区
+
+5. 将暂存区所有文件提交到Git仓库
+
+   git commit -m "提交说明"
+
+6. 查看日志
+
+   git log 	查看文件变化日志
+
+7. 回退文件版本
+
+   git reset --hard 	从仓库回退文件版本
+
+   git reflog 	查看回退文件日志
+
+8. 忽略文件
+
+   有些文件不需要Git系统来管理，可以忽略
+
+   使用任意编辑器创建 .gitignore 文件，把需要忽略的文件写进去即可
+
+## 4.分支
+
+如果要执行分支的创建和切换时，要确保工作目录是干净的
+
+1. 创建分支
+
+   git branch 分支名称 	拷贝一份当前分支，作为新的分支
+
+2. 查看所有的分支
+
+   git branch 	列出所有的分支
+
+3. 切换分支
+
+   git checkout 分支名称 	切换到另一个分支
+
+4. 合并分支’
+
+   git merge 	分支合并
+
+   | 如果弹出了窗口，里面要求解释为什么这么合并，直接退出（：qa）<br />（master\|MERGING）：出现了冲突，手动修改，重新提交到仓库 |
+   | ------------------------------------------------------------ |
+
+5. 删除分支
+
+   git branch -d 分支名称 	删除已经合并的分支
+
+   git branch -D 分支名称 	删除分支
+
+## 5.远程仓库
+
+代码托管平台
+
+GitHub：全球最大的，www.github.com
+
+码云：国内最大的，www.gitee.com
+
+将本地仓库推送到远程仓库
+
+1. 创建远程仓库并找到地址
+2. 推送：git push 仓库地址 分支名称
+
+克隆仓库到本地：git clone 仓库地址
